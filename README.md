@@ -1,5 +1,8 @@
 # Text.InterpolatedString.QQ2
 
+[![Build Status](https://api.travis-ci.org/isovector/interpolatedstring-qq2.svg?branch=master)](https://travis-ci.org/isovector/interpolatedstring-qq2)
+[![Hackage](https://img.shields.io/hackage/v/interpolatedstring-qq2.svg?logo=haskell)](https://hackage.haskell.org/package/interpolatedstring-qq2)
+
 QuasiQuoter for QQ2-style multi-line interpolated strings with "q", "qq" and
 "qc" support.
 
