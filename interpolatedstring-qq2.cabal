@@ -4,10 +4,11 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: bdcfec40151a582c1c0d5122f2f20706b618676c84f55dfdeb53be74326ede1a
+-- hash: 046fabde96118eab387745fca65c609b5e9735f98f7d36503602da72c7a0765c
 
 name:           interpolatedstring-qq2
 version:        0.1.0.0
+synopsis:       QuasiQuoter for multi-line interpolated strings
 description:    Please see the README on GitHub at <https://github.com/isovector/interpolatedstring-qq2#readme>
 category:       Data
 homepage:       https://github.com/isovector/interpolatedstring-qq2#readme

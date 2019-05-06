@@ -20,7 +20,7 @@
 --
 -- Any instance of the 'IsString' class is permitted.
 --
--- The 'qc' form interpolates curly braces: expressions inside {} will be
+-- The 'qc' form interpolates curly braces: expressions inside #{} will be
 -- directly interpolated if it's a 'Char', 'String', 'Text' or 'ByteString', or
 -- it will have 'show' called if it is not.
 --
@@ -33,7 +33,7 @@
 -- {-\# LANGUAGE QuasiQuotes, ExtendedDefaultRules #-}
 -- import Text.InterpolatedString.QQ2 (qc)
 -- bar :: String
--- bar = [qc| Well {\"hello\" ++ \" there\"} {6 * 7} |]
+-- bar = [qc| Well #{\"hello\" ++ \" there\"} #{6 * 7} |]
 -- @
 --
 -- bar will have the value \" Well hello there 42 \".
@@ -60,7 +60,7 @@
 -- import Data.Text (Text)
 -- import Data.ByteString.Char8 (ByteString)
 -- qux :: ByteString
--- qux = [qc| This will convert {\"Text\" :: Text} to {\"ByteString\" :: ByteString} |]
+-- qux = [qc| This will convert #{\"Text\" :: Text} to #{\"ByteString\" :: ByteString} |]
 -- @
 
 module Text.InterpolatedString.QQ2 (qc, q, ShowQ(..)) where

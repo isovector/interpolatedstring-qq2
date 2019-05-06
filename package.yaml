@@ -11,7 +11,7 @@ extra-source-files:
 - ChangeLog.md
 
 # Metadata used when publishing your package
-Synopsis:      QuasiQuoter for multi-line interpolated strings
+synopsis:      QuasiQuoter for multi-line interpolated strings
 category:      Data
 
 # To avoid duplicated efforts in documentation and dealing with the
