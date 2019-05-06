@@ -7,7 +7,7 @@
 -- no interpolation at all:
 --
 -- @
--- {-\# LANGUAGE QuasiQuotes, ExtendedDefaultRules #-}
+-- {-\# LANGUAGE QuasiQuotes, ExtendedDefaultRules \#-}
 -- import Text.InterpolatedString.QQ2 (q)
 -- foo :: String -- 'Text', 'ByteString' etc also works
 -- foo = [q|
@@ -20,20 +20,20 @@
 --
 -- Any instance of the 'IsString' class is permitted.
 --
--- The 'qc' form interpolates curly braces: expressions inside #{} will be
+-- The 'qc' form interpolates curly braces: expressions inside \#{} will be
 -- directly interpolated if it's a 'Char', 'String', 'Text' or 'ByteString', or
 -- it will have 'show' called if it is not.
 --
--- Escaping of '{' is done with backslash.
+-- Escaping of '\#{' is done with backslash.
 --
 -- For interpolating numeric expressions without an explicit type signature,
 -- use the ExtendedDefaultRules lanuage pragma, as shown below:
 --
 -- @
--- {-\# LANGUAGE QuasiQuotes, ExtendedDefaultRules #-}
+-- {-\# LANGUAGE QuasiQuotes, ExtendedDefaultRules \#-}
 -- import Text.InterpolatedString.QQ2 (qc)
 -- bar :: String
--- bar = [qc| Well #{\"hello\" ++ \" there\"} #{6 * 7} |]
+-- bar = [qc| Well \#{\"hello\" ++ \" there\"} \#{6 * 7} |]
 -- @
 --
 -- bar will have the value \" Well hello there 42 \".
@@ -45,7 +45,7 @@
 -- a sequence of words, removing those pesky brackets, quotes, and escape sequences.
 --
 -- @
--- {-\# LANGUAGE FlexibleInstances #-}
+-- {-\# LANGUAGE FlexibleInstances \#-}
 -- import Text.InterpolatedString.QQ2 (qc, ShowQ(..))
 -- instance ShowQ [String] where
 --     showQ = unwords
@@ -55,12 +55,12 @@
 -- instances.
 --
 -- @
--- {-# LANGUAGE QuasiQuotes, OverloadedStrings #-}
+-- {-\# LANGUAGE QuasiQuotes, OverloadedStrings \#-}
 -- import Text.InterpolatedString.QQ2 (qc)
 -- import Data.Text (Text)
 -- import Data.ByteString.Char8 (ByteString)
 -- qux :: ByteString
--- qux = [qc| This will convert #{\"Text\" :: Text} to #{\"ByteString\" :: ByteString} |]
+-- qux = [qc| This will convert \#{\"Text\" :: Text} to \#{\"ByteString\" :: ByteString} |]
 -- @
 
 module Text.InterpolatedString.QQ2 (qc, q, ShowQ(..)) where
@@ -150,7 +150,7 @@ reify s =
         Left s'  -> TH.reportError s' >> [| mempty |]
         Right e ->  return e
 
--- | QuasiQuoter for interpolating '{expr}' into a string literal. The pattern portion is undefined.
+-- | QuasiQuoter for interpolating '\#{expr}' into a string literal. The pattern portion is undefined.
 qc :: QuasiQuoter
 qc = QuasiQuoter (makeExpr . parseQC [] . filter (/= '\r'))
                  (error "Cannot use qc as a pattern")
